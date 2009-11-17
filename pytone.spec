@@ -8,7 +8,9 @@ Group:		Applications/Sound
 Source0:	http://www.luga.de/pytone/download/PyTone-%{version}.tar.gz
 # Source0-md5:	f9560c571df84ad9c83c3a113882bb81
 URL:		http://www.luga.de/pytone/
+BuildRequires:	libao-devel
 BuildRequires:	python-devel
+BuildRequires:	rpm-pythonprov
 Requires:	python-mad
 Requires:	python-pyao
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f PyTone.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README THANKS TODO 
+%doc AUTHORS ChangeLog README THANKS TODO
 %attr(755,root,root) %{_bindir}/pytone*
 %{py_sitedir}/PyTone*egg-info
 %{py_sitedir}/pytone
